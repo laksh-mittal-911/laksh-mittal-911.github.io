@@ -1,0 +1,19 @@
+/* Reset & base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: sans-serif; padding: 1rem; line-height: 1.5; color: #2e2e2e; }
+header { text-align: center; margin-bottom: 2rem; }
+section { margin-bottom: 2rem; }
+h2 { margin-bottom: 0.5rem; }
+
+/* About */
+.profile-pic { display: block; margin: 0.5rem auto; width: 150px; height: 150px; border-radius: 50%; }
+.birthplace-images { display: flex; justify-content: center; gap: 1rem; margin-top: 0.5rem; }
+.birthplace-images img { width: 150px; height: auto; }
+
+/* Lists */
+ul { list-style: disc inside; margin-top: 0.5rem; }
+
+/* Text analysis */
+#text-input { width: 100%; padding: 0.5rem; }
+#analyze-btn { margin-top: 0.5rem; padding: 0.5rem 1rem; cursor: pointer; }
+#analysis-output { margin-top: 1rem; background: #f4f4f4; padding: 1rem; border: 1px solid #ddd; white-space: pre-wrap; }
