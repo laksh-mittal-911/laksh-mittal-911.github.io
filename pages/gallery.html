@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gallery | Laksh Mittal</title>
   <link rel="stylesheet" href="../css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 </head>
 <body>
   <nav>
@@ -14,17 +16,91 @@
       <li><a href="skills.html">Skills</a></li>
       <li><a href="gallery.html" class="active">Gallery</a></li>
       <li><a href="contact.html">Contact & CV</a></li>
+      <li><a href="../text-analyser.html">Text Analyser</a></li>
+      <li><a href="../2024113003.html">Aframe Geometry(CA3)</a></li>
     </ul>
   </nav>
+  
+  <header class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg');">
+    <div class="hero-content">
+      <h1>My Gallery</h1>
+      <p>Visual glimpses into my world</p>
+    </div>
+  </header>
+  
   <main class="gallery">
-    <h2>My Birthplace – Gurugram</h2>
-    <img src="../images/gurgaon1.jpg" alt="Gurgaon City" />
-    <img src="../images/gurgaon2.jpg" alt="Gurgaon Street" />
-    <h2>Passions</h2>
-    <img src="../images/gym.jpg" alt="Gym" />
-    <img src="../images/guitar.jpg" alt="Guitar" />
+    <section class="gallery-section slide-up">
+      <h2>My Birthplace – Gurugram</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <a href="../images/gurgaon1.jpg" data-lightbox="gurgaon" data-title="Gurgaon City">
+            <img src="../images/gurgaon1.jpg" alt="Gurgaon City" />
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="../images/gurgaon2.jpg" data-lightbox="gurgaon" data-title="Gurgaon Street">
+            <img src="../images/gurgaon2.jpg" alt="Gurgaon Street" />
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="gallery-section slide-up">
+      <h2>Passions</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <a href="../images/gym.jpg" data-lightbox="passions" data-title="Fitness & Gym Training">
+            <img src="../images/gym.jpg" alt="Gym" />
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="../images/guitar.jpg" data-lightbox="passions" data-title="Guitar & Music">
+            <img src="../images/guitar.jpg" alt="Guitar" />
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
-  <script src="./js/analytics.js"></script>
+  
+  <footer>
+    <p>&copy; 2025 Laksh Mittal. All rights reserved.</p>
+  </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script src="../js/script.js"></script>
+  
+  <script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'fadeDuration': 300
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      
+      function checkScroll() {
+        galleryItems.forEach(item => {
+          const itemTop = item.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (itemTop < windowHeight * 0.85) {
+            item.classList.add('slide-up');
+            item.style.opacity = '1';
+          }
+        });
+      }
+      
+      galleryItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      });
+      
+      window.addEventListener('scroll', checkScroll);
+   
+      checkScroll();
+    });
+  </script>
 </body>
 </html>
